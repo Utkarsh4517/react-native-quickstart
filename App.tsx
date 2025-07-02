@@ -1,12 +1,17 @@
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "./global.css"
-import { Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import AppNavigator from "./src/navigation/AppNavigator";
+import { AppProvider } from "./src/contexts/AppContext";
  
 export default function App() {
   return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-xl font-bold text-blue-500">
-        Welcome to RNQuickStart!
-      </Text>
-    </View>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <AppProvider>
+        <NavigationContainer>
+          <AppNavigator />
+        </NavigationContainer>
+      </AppProvider>
+    </GestureHandlerRootView>
   );
 }
